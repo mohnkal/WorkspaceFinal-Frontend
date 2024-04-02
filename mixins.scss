@@ -1,0 +1,21 @@
+@mixin sssm {
+    @media only screen and (max-width: 420px) {
+      @content;
+    }
+  }
+  @mixin ssm {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+  @mixin sm {
+    @media only screen and (max-width: 640px) {
+      @content;
+    }
+  }
+  
+  @mixin md {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }

@@ -5,6 +5,7 @@ import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
 import Newsletter from "../components/Newsletter";
 
+
 const Home = () => {
   const [SelectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);

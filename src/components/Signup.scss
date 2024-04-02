@@ -1,0 +1,390 @@
+// @import "../mixins.scss";
+
+// .mainDiv {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   height: 100vh;
+//   background: linear-gradient(
+//     49deg,
+//     rgba(0, 151, 255, 1) 14%,
+//     rgba(115, 0, 255, 1) 79%
+//   );
+//   .borderLine {
+//     background: white;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: column;
+//     height: 500px;
+//     width: 900px;
+//     border: 1px solid black;
+//     border-radius: 12px;
+//     @include md {
+//       height: 450px;
+//       width: 700px;
+//     }
+//     @include sssm {
+//       height: 450px;
+//       width: 300px;
+//     }
+//     h1 {
+//       margin: 0;
+//       @include sssm{
+//         font-size: 15px;
+//       }
+//     }
+//     p {
+//       margin: 10;
+//       @include sssm{
+//         font-size: 12px;
+//       }
+//     }
+//     a{
+//       @include sssm{
+//         font-size: 12px;
+//       }
+//     }
+//     .textDetailsDiv {
+//       width: 600px;
+//       .description {
+//         .blueText {
+//           color: blue;
+//         }
+//       }
+//       @include sssm {
+//         width: 280px;
+//       }
+//     }
+//   }
+// }
+// .nameInputBox {
+//   width: 335px;
+//   height: 35px;
+//   @include md {
+//     width: 300px;
+//     height: 35px;
+//   }
+//   @include ssm {
+//     width: 220px;
+//     height: 30px;
+//   }
+// }
+// .nameBox {
+//   margin-top: 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: row;
+//   @include sssm{
+//     flex-wrap: wrap;
+//   }
+// }
+// .lastNameInputBox {
+//   width: 335px;
+//   height: 35px;
+//   margin-left: 15px;
+//   @include md {
+//     width: 300px;
+//     height: 35px;
+//   }
+//   @include sssm{
+//     margin-left: 0;
+//     width: 220px;
+//     height: 30px;
+//   }
+// }
+// .labelLastName {
+//   margin-left: 15px;
+//   @include md {
+//     margin-left: 15px;
+//   }
+//   @include sssm{
+//     margin-left: 0;
+//   }
+// }
+// .passBox {
+//   margin-top: 20px;
+// }
+// input {
+//   width: 690px;
+//   height: 35px;
+//   border-radius: 3px;
+//   border: solid 1px black;
+//   font-family: sans-serif;
+//   font-size: 15px;
+//   @include md {
+//     width: 620px;
+//     height: 35px;
+//   }
+//   @include sssm{
+//     width: 220px;
+//     height: 30px;
+//   }
+// }
+// .redstar {
+//   color: red;
+// }
+// .button {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 20px;
+//   border-radius: 3px;
+//   .submitButton {
+//     width: 240px;
+//     height: 35px;
+//     background: linear-gradient(
+//       49deg,
+//       rgba(0, 151, 255, 1) 14%,
+//       rgba(115, 0, 255, 1) 79%
+//     );
+//     border: 0;
+//     color: white;
+//     // @include sssm {
+//     //   width: 170px;
+//     //   height: 30px;
+//     // }
+//   }
+// }
+// .Lname{
+//   margin-top: 20px;
+// }
+// .mainDiv {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+//   background: linear-gradient(49deg, rgba(0, 151, 255, 1) 14%, rgba(115, 0, 255, 1) 79%);
+// }
+
+// .borderLine {
+//   background: white;
+//   border: 1px solid black;
+//   border-radius: 12px;
+//   padding: 20px;
+//   max-width: 900px;
+//   width: 100%;
+// }
+
+// .textDetailsDiv {
+//   text-align: center;
+// }
+
+// .emailBox,
+// .passBox,
+// .profile {
+//   margin-top: 20px;
+// }
+
+// .inputbox,
+// .fileInput {
+//   width: 100%;
+//   height: 35px;
+//   border-radius: 3px;
+//   border: solid 1px black;
+//   font-family: sans-serif;
+//   font-size: 15px;
+//   padding: 5px;
+// }
+
+// .redstar {
+//   color: red;
+// }
+
+// .button {
+//   margin-top: 20px;
+//   text-align: center;
+// }
+
+// .submitButton {
+//   width: 100%;
+//   height: 35px;
+//   background: linear-gradient(49deg, rgba(0, 151, 255, 1) 14%, rgba(115, 0, 255, 1) 79%);
+//   border: 0;
+//   color: white;
+// }
+
+// .profileImagePreview {
+//   max-width: 100px;
+//   margin-top: 10px;
+// }
+
+// .nameBox {
+//   margin-top: 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   flex-direction: column;
+// }
+
+// .Lname {
+//   margin-top: 10px;
+// }
+
+// @media only screen and (min-width: 600px) {
+//   .nameBox {
+//     flex-direction: row;
+//     align-items: flex-end;
+//   }
+
+//   .Lname {
+//     margin-top: 0;
+//     margin-left: 20px; // Add space between first and last name fields
+//   }
+// }
+@import "../mixins.scss";
+
+.mainDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(
+    49deg,
+    rgba(0, 151, 255, 1) 14%,
+    rgba(115, 0, 255, 1) 79%
+  );
+  .borderLine {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 700px;
+    width: 900px;
+    border: 1px solid black;
+    border-radius: 12px;
+    @include md {
+      height: 450px;
+      width: 700px;
+    }
+    @include sssm {
+      height: 550px;
+      width: 300px;
+    }
+    h1 {
+      margin: 0;
+      @include sssm{
+        font-size: 15px;
+      }
+    }
+    p {
+      // margin: 10;
+      @include sssm{
+        font-size: 12px;
+      }
+    }
+    a{
+      @include sssm{
+        font-size: 12px;
+      }
+    }
+    .textDetailsDiv {
+      width: 691px;
+      .description {
+        .blueText {
+          color: blue;
+        }
+      }
+      @include sssm {
+        width: 280px;
+      }
+    }
+  }
+}
+.nameInputBox {
+  width: 335px;
+  height: 35px;
+  @include md {
+    width: 300px;
+    height: 35px;
+  }
+  @include ssm {
+    width: 220px;
+    height: 30px;
+  }
+}
+.nameBox {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  @include sssm{
+    flex-wrap: wrap;
+  }
+}
+.lastNameInputBox {
+  width: 335px;
+  height: 35px;
+  margin-left: 15px;
+  @include md {
+    width: 300px;
+    height: 35px;
+  }
+  @include sssm{
+    margin-left: 0;
+    width: 220px;
+    height: 30px;
+  }
+}
+.labelLastName {
+  margin-left: 15px;
+  @include md {
+    margin-left: 15px;
+  }
+  @include sssm{
+    margin-left: 0;
+  }
+}
+.passBox {
+  margin-top: 20px;
+}
+input {
+  width: 690px;
+  height: 35px;
+  border-radius: 3px;
+  border: solid 1px black;
+  font-family: sans-serif;
+  font-size: 15px;
+  @include md {
+    width: 620px;
+    height: 35px;
+  }
+  @include sssm{
+    width: 220px;
+    height: 30px;
+  }
+}
+.redstar {
+  color: red;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 3px;
+  .submitButton {
+    width: 240px;
+    height: 35px;
+    background: linear-gradient(
+      49deg,
+      rgba(0, 151, 255, 1) 14%,
+      rgba(115, 0, 255, 1) 79%
+    );
+    border: 0;
+    color: white;
+    // @include sssm {
+    //   width: 170px;
+    //   height: 30px;
+    // }
+  }
+}
+.Lname{
+  margin-top: 20px;
+}
+

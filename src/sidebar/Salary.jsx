@@ -26,25 +26,25 @@ const Salary = ({handleChange,handleClick}) => {
         <Inputfield
           handleChange={handleChange}
           value="30"
-          title="< 30000k"
+          title="< 30000"
           name="test2"
         />
         <Inputfield
           handleChange={handleChange}
           value="50"
-          title="< 50000k"
+          title="< 50000"
           name="test2"
         />
         <Inputfield
           handleChange={handleChange}
           value="80"
-          title="< 80000k"
+          title="< 80000"
           name="test2"
         />
         <Inputfield
           handleChange={handleChange}
           value="100"
-          title="< 100000k"
+          title="< 100000"
           name="test2"
         />
       </div>

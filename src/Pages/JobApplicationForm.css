@@ -1,0 +1,53 @@
+/* Style for the overall form */
+.apply {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for each form div (considered as a form group) */
+.apply div {
+    margin-bottom: 15px;
+}
+
+/* Style for labels */
+.apply label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style for input fields */
+.first,.last,.phone,.mail,.date,.resume,.exp,.pay {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Add some space below each input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for the submit button */
+.sub {
+    background-color: #362da2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sub:hover {
+    background-color: #2c249b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .apply {
+        width: 90%;
+        padding: 15px;
+    }
+}

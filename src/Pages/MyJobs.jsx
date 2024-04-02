@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from 'axios';
+import { saveAs } from 'file-saver';
+import ExcelJS from 'exceljs';
+
+
 
 const MyJobs = () => {
-  const email = "mohnishkalaimani@gmail.com";
+  const user = useSelector((state) => state.users.user);
   const [jobs, setJobs] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -12,14 +18,19 @@ const MyJobs = () => {
    const itemsPerPage = 4;
 
   useEffect(() => {
+    if(user && user.email){
     setIsLoading(true);
-    fetch(`http://localhost:5000/myJobs/mohnishkalaimani@gmail.com`)
+    fetch(`http://localhost:5000/myJobs/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
         setIsLoading(false);
       });
-  }, [searchText]);
+    }
+  }, [user, searchText]);
+
+
+  
 
   //pagination
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -56,6 +67,44 @@ const MyJobs = () => {
       }
     })
   }
+
+  const handleDownload = (id) =>{
+    // Get all the data of applications for job
+    axios.post("http://localhost:5000/applications_for_job",{id:id})
+    .then((res) =>{
+      console.log(res.data)
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('applications');
+      
+      // Add header row
+      const header = Object.keys(res.data.data[0]);
+      worksheet.addRow(header);
+
+      // Add data rows
+      res.data.data.forEach((rowData) => {
+        const row = Object.values(rowData);
+        worksheet.addRow(row);
+      });
+
+      // Save workbook
+      workbook.xlsx.writeBuffer()
+        .then((buffer) => {
+          const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+          saveAs(blob, 'applications.xlsx');
+        })
+        .catch((error) => {
+          console.error('Error saving Excel file:', error);
+        });
+
+    })
+  }
+
+
+  useEffect(() =>{
+    console.log(currentJobs)
+
+  }, [currentJobs])
+
 
   // console.log(searchText)
   return <div classNameName="max-w-screen-2xl container mx-auto xl:px-24 px-4">
@@ -104,6 +153,9 @@ const MyJobs = () => {
           <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           DELETE
                         </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Download Application
+                        </th>
           </tr>
         </thead>
 
@@ -134,6 +186,9 @@ const MyJobs = () => {
               </td>
               <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                <button onClick={() => handleDelete(job._id)}  className="bg-red-700 py-2 px-6 text-white rounded-sm">Delete</button>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+               <button onClick={() => handleDownload(job._id)}  className="bg-green-700 py-2 px-6 text-white rounded-sm">Download Applications</button>
               </td>
             </tr>))
           }

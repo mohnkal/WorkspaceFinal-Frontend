@@ -1,0 +1,149 @@
+$primary-color: #007BFF; // Define primary color as a SASS variable
+
+:root {
+  --primary-color: #{$primary-color}; // Use primary color as a CSS variable
+  --secondary-color: #6610F2;
+  --google-btn-bg-color: #4285F4;
+  --input-width: 100%;
+  --input-height: 44px;
+  --border-radius: 5px;
+  --font-color: #495057;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --background-color: #f8f9fa;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.borderline {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  animation: fadeIn 0.6s ease-out;
+}
+.bluetext{
+         color:blue;
+         }
+
+.email{
+    width: 100%;
+}
+.password{
+    width: 100%;
+}
+.or{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.input-text,
+.loginbtn,
+.icon {
+  width: var(--input-width);
+  height: var(--input-height);
+  border-radius: var(--border-radius);
+  padding: 0 15px;
+  border: 1px solid #ced4da;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.input-text:focus,
+.loginbtn:focus,
+.icon:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.input-text {
+  color: var(--font-color);
+  background-color: #fff;
+}
+
+.loginbtn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: darken($primary-color, 5%); // Using darken SASS function
+  }
+}
+
+.icon {
+  background-color: var(--google-btn-bg-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  gap: 10px;
+  transition: background-color 0.2s;
+}
+
+@media (max-width: 768px) {
+  .borderline {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .borderline {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .input-text,
+  .loginbtn,
+  .icon {
+    height: 40px;
+  }
+}

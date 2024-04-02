@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Creatable from "react-select/creatable"
-
+import { useNavigate } from "react-router-dom";
 
 const PostJob = () => {
   const[selectedOption,setSelectedOption] = useState(null);
+
+  // define a navigator
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,reset,
@@ -22,6 +26,7 @@ const PostJob = () => {
       console.log(result);
       if(result.acknowledged === true){
         alert("Job Posted Successfully")
+        navigate("/")
       }
       reset()
     })
@@ -51,6 +56,7 @@ const PostJob = () => {
                 defaultValue={"Web Developer"}
                 {...register("jobTitle")}
                 className="create-job-input"
+                required
               />
             </div>
             <div className="lg:w-1/2 w-full">
@@ -60,6 +66,7 @@ const PostJob = () => {
                 placeholder="Ex: Microsoft"
                 {...register("companyName")}
                 className="create-job-input"
+                required
               />
             </div>
           </div>
@@ -67,21 +74,23 @@ const PostJob = () => {
           {/* 2nd row */}
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 mt-2 text-lg">Minimum Salary</label>
+              <label className="block mb-2 mt-2 text-lg">Minimum Salary(in $)</label>
               <input
                 type="text"
                 placeholder="$20k"
                 {...register("minPrice")}
                 className="create-job-input"
+                required
               />
             </div>
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 mt-2 text-lg">Maximum Salary</label>
+              <label className="block mb-2 mt-2 text-lg">Maximum Salary(in $)</label>
               <input
                 type="text"
                 placeholder="$120k"
                 {...register("maxPrice")}
                 className="create-job-input"
+                required
               />
             </div>
           </div>
@@ -103,6 +112,7 @@ const PostJob = () => {
                 placeholder="Ex: New York"
                 {...register("jobLocation")}
                 className="create-job-input"
+                required
               />
             </div>
           </div>
@@ -111,12 +121,13 @@ const PostJob = () => {
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
               <label className="block mb-2 mt-2 text-lg">Job Posting Date</label>
-              <input
+              {/* <input
                 type="date"
                 placeholder="Ex: 2024-02-11"
                 {...register("postingDate")}
                 className="create-job-input"
-              />
+                required
+              /> */}
             </div>
             <div className="lg:w-1/2 w-full">
               <label className="block mb-2 mt-2 text-lg">Experience Level</label>
@@ -141,12 +152,13 @@ const PostJob = () => {
           {/* 6th row */}
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 mt-2 text-lg">Company Logo</label>
+              <label className="block mb-2 mt-2 text-lg object-contain">Company Logo</label>
               <input
                 type="url"
                 placeholder="Paste your company logo URL:https://logo.com/"
                 {...register("companyLogo")}
                 className="create-job-input"
+                required
               />
             </div>
             <div className="lg:w-1/2 w-full">
@@ -176,13 +188,14 @@ const PostJob = () => {
                 placeholder="Your email"
                 {...register("postedBy")}
                 className="create-job-input"
+                required
               />
           </div>
           
 
           <input
             type="submit"
-            className="block mt-12 bg-blue text-white font-semibold px-8 py-2 rounded-sm cursor-pointer"
+            className="block mt-12 bg-blue text-white font-semibold px-8 py-2 rounded-sm cursor-pointer w-full"
           />
         </form>
       </div>
